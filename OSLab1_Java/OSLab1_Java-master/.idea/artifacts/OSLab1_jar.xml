@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OSLab1:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OSLab1_jar</output-path>
+    <root id="archive" name="OSLab1.jar">
+      <element id="module-output" name="OSLab1" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/2.0.7/slf4j-simple-2.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jdeferred/v2/jdeferred-core/2.0.0/jdeferred-core-2.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.2/slf4j-api-2.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

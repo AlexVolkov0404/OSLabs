@@ -46,7 +46,7 @@ public class Manager {
 
             do {
                 try {
-                    String command = "java -jar C:\\Users\\Dklishch\\IdeaProjects\\OSLab1\\src\\main\\resources\\OSLab1.jar " + x + " " + function;
+                    String command = "java -jar src/main/resources/OSLab1.jar " + x + " " + function;
                     Process process = Runtime.getRuntime().exec(command);
 
                     if (process.waitFor(timeout, TimeUnit.MILLISECONDS)) {

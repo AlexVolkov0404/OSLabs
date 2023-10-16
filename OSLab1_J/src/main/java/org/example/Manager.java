@@ -67,16 +67,15 @@ public class Manager {
                         process.destroy();
                         result = new FunctionResult(0, FunctionResultStatus.TIMEOUT);
                     }
-
-                    results.put(x, result);
                 } catch (IOException | ClassNotFoundException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
 
                 ++retries;
-            } while (result.getStatus() != FunctionResultStatus.SUCCESSFUL && result.getStatus() != FunctionResultStatus.SOFT_FAULT && retries < maxRetriesCount);
+            } while (result.getStatus() != FunctionResultStatus.SUCCESSFUL && result.getStatus() != FunctionResultStatus.HARD_FAULT && retries < maxRetriesCount);
 
             result.setRetries(retries);
+            results.put(x, result);
             object.resolve(result);
         }).start();
 

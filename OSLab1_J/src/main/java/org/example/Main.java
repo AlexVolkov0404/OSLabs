@@ -10,13 +10,13 @@ public class Main {
         manager.setCallback(getCallbackFunction());
 
         while (true) {
-            System.out.println("Enter (q) to exit");
-            System.out.println("Enter number to run functions");
+            System.out.println("Введіть (x), щоб вийти");
+            System.out.println("Введіть число, щоб запустити функції");
 
             Scanner scanner = new Scanner(System.in);
             String string = scanner.nextLine();
 
-            if (Objects.equals(string, "q")) {
+            if (Objects.equals(string, "x")) {
                 break;
             }
 
@@ -25,14 +25,14 @@ public class Main {
                 ExecutionResult result = manager.runFunctions(x);
 
                 if (result.getStatus() == ExecutionResultStatus.SUCCESSFUL) {
-                    System.out.println("Execution was successful");
-                    System.out.println("Value: " + result.getValue());
+                    System.out.println("Виконання успішне");
+                    System.out.println("Результат: " + result.getValue());
                 } else if (result.getStatus() == ExecutionResultStatus.F_FAILED) {
-                    System.out.println("F execution was not successful");
+                    System.out.println("F виконання НЕ успішне");
                 } else if (result.getStatus() == ExecutionResultStatus.G_FAILED) {
-                    System.out.println("G execution was not successful");
+                    System.out.println("G виконання НЕ успішне");
                 } else {
-                    System.out.println("Both execution was not successful");
+                    System.out.println("Обидві функції виконалися НЕ успішно");
                 }
             }
         }
@@ -43,13 +43,15 @@ public class Main {
         return (function, result) -> {
             lock.lock();
             if (result.getStatus() == FunctionResultStatus.SUCCESSFUL) {
-                System.out.println(Character.toString(function).toUpperCase() + " execution was successful");
-                System.out.println(Character.toString(function).toUpperCase() + " value: " + result.getValue());
+                System.out.println(Character.toString(function).toUpperCase() + " виконання успішне");
+                System.out.println(Character.toString(function).toUpperCase() + " значення: " + result.getValue());
             } else {
-                System.out.println(Character.toString(function).toUpperCase() + " execution not was successful");
+                System.out.println(Character.toString(function).toUpperCase() + " виконання НЕ успішне");
             }
-            System.out.println(Character.toString(function).toUpperCase() + " had retries: " + result.getRetries());
+            System.out.println(Character.toString(function).toUpperCase() + " має повторів: " + result.getRetries());
             lock.unlock();
         };
     }
+
+
 }
